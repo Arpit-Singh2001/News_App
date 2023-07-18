@@ -8,24 +8,38 @@ function NewsApp() {
   const inputData = useRef(null);
 
   const apiKey = "61e2134a5b6145cab9dbfc0cefd33497";
-  const apiUrl = `https://newsapi.org/v2/everything?q=${query}&from=2023-06-18&sortBy=publishedAt&apiKey=${apiKey}`;
+  //const apiUrl = `https://newsapi.org/v2/everything?q=${query}&from=2023-06-18&sortBy=publishedAt&apiKey=${apiKey}`;
 
-  async function fetchData() {
-    try {
-      const response = await fetch(apiUrl);
-      const data = await response.json();
-      setNews(data.articles);
-    } catch (e) {
-      return (
-        <>
-          <h1>error occured</h1>
-        </>
-      );
-    }
-  }
+  // async function fetchData() {
+  //   try {
+  //     const response = await fetch(apiUrl);
+  //     const data = await response.json();
+  //     setNews(data.articles);
+  //   } catch (e) {
+  //     return (
+  //       <>
+  //         <h1>error occured</h1>
+  //       </>
+  //     );
+  //   }
+  // }
 
   useEffect(() => {
-    fetchData();
+    const apiUrl = `https://newsapi.org/v2/everything?q=${query}&from=2023-06-18&sortBy=publishedAt&apiKey=${apiKey}`;
+    async function fetchData(apiUrl) {
+      try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        setNews(data.articles);
+      } catch (e) {
+        return (
+          <>
+            <h1>error occured</h1>
+          </>
+        );
+      }
+    }
+    fetchData(apiUrl);
   }, [query]);
 
   function handleSubmit(value) {
