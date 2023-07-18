@@ -4,25 +4,10 @@ import styled from "styled-components";
 
 function NewsApp() {
   const [news, setNews] = useState([]);
-  const [query, setQuery] = useState("tesla");
+  const [query, setQuery] = useState("ipl");
   const inputData = useRef(null);
 
   const apiKey = "61e2134a5b6145cab9dbfc0cefd33497";
-  //const apiUrl = `https://newsapi.org/v2/everything?q=${query}&from=2023-06-18&sortBy=publishedAt&apiKey=${apiKey}`;
-
-  // async function fetchData() {
-  //   try {
-  //     const response = await fetch(apiUrl);
-  //     const data = await response.json();
-  //     setNews(data.articles);
-  //   } catch (e) {
-  //     return (
-  //       <>
-  //         <h1>error occured</h1>
-  //       </>
-  //     );
-  //   }
-  // }
 
   useEffect(() => {
     const apiUrl = `https://newsapi.org/v2/everything?q=${query}&from=2023-06-18&sortBy=publishedAt&apiKey=${apiKey}`;
