@@ -25,7 +25,7 @@ function NewsApp() {
       }
     }
     fetchData(apiUrl);
-  }, [query]);
+  }, []);
 
   function handleSubmit(value) {
     setQuery(value);
