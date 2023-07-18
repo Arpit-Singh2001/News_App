@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import News, { Newscard, Newscontainer } from "./News";
+import News, { Newscontainer } from "./News";
 import styled from "styled-components";
 
 function NewsApp() {
